@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+@import "variables.css";
+
+html {
+	font-size: 100%;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: var(--ff);
+	height: 100vh;
+}
+
+.coming-soon {
+
+}
+	.coming-soon__logo {
+		position: absolute;
+		left: 0;
+		top: 0;
+		margin-top: 2.0625rem;
+	}
+
+	.coming-soon__content {
+		flex-basis: 60%;
+		flex-direction: column;
+		justify-content: center;
+	}
+		.control{
+			margin-top: 1.5625rem;
+			position: relative;
+			height: 50px;
+			width: 100%;
+		}
+
+		.control > * {
+			position: absolute;
+			height: inherit;
+		}
+
+			.control__input {
+				font-size: 1rem;
+				font-weight: var(--fs-m);
+				transition: all .3s linear;
+				width: inherit;
+				border-radius: 50px;
+				outline: none;
+				border:1px solid var(--Desaturated-Red);
+				color: var(--Dark-Grayish-Red);
+			}
+				.control__input::placeholder {
+					color: var(--Desaturated-Red);
+					opacity: .4;
+					text-transform: capitalize;
+				}
+
+				.control__input:focus::placeholder {
+					opacity: 0;
+				}
+
+			.control__input,
+			.control__error-text {
+				padding-left: 1rem;
+			}
+
+			.control__error-icon,
+			.control__error-text {
+				transition: opacity .3s linear;
+				opacity: 0;				
+			}
+
+			.control__error-icon {
+				right: 1.5rem;
+				transform:translateX(-100%) scale(.5);
+			}
+
+			.control__button {
+				right: 0;
+			}
+
+			.control__error-text {
+				color: var(--Soft-Red);
+				height: auto;
+				top: 100%;
+				transform:translateY(100%);
+			}
+
+	.coming-soon__img {
+		flex-basis: 40%;
+		height: 100vh;
+		background:	var(--Dark-Grayish-Red) 
+					url('../../images/hero-desktop.jpg')
+					no-repeat center center / cover;
+	}
+
+
+
+img {
+	display: block;
+/*	max-height: 100%;
+	width: auto;*/
+}
+
+h1 {
+	text-transform: uppercase;
+	line-height: 1.1;
+	letter-spacing: .875rem;
+	margin-top: 0;
+	font-size: 46px ;
+	font-weight: var(--fs-l);
+	color: var(--Dark-Grayish-Red);
+}
+
+p, strong {
+	margin: 0;
+	color: var(--Desaturated-Red);
+	font-weight: var(--fs-m);
+}
+
+p {
+	font-size: 17px;
+	line-height: 1.5;
+}
+
+button {
+	border:none;
+	outline: none;
+	padding: 0 2rem;
+	border-radius: 50px;
+	background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+	transition: all .2s linear;
+	cursor: pointer;
+}
+
+button:hover {
+	opacity: .8;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.container {
+	position: relative;
+	width: 40%;
+	height: inherit;
+	margin: 0 auto;
+}
+
+.flex {
+	display: flex;
+}
+
+.jc-sb {
+	justify-content: space-between;
+}
+
+.jc-c {
+	justify-content: center;
+}
+
+.control.fail .control__error-icon,
+.control.fail	.control__error-text {
+	opacity: 1;
+}
+
+.control.fail .control__input {
+	border-color: var(--Soft-Red);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.control.valid .control__input {
+	border-color: lightgreen;
+}
+
+@media screen and (max-width:600px) {
+	.coming-soon {
+		flex-direction: column-reverse;
+	}
+
+	.coming-soon__logo {
+		left: 3rem;
+	}
+
+	.coming-soon__img {
+		margin-top: 6rem;
+		width: 100%;
+		min-height: 40vh;
+		background:	var(--Dark-Grayish-Red) 
+					url('../../images/hero-mobile.jpg')
+					no-repeat center center / cover;
+	}
+	.container {
+		position: static;
+		width: 80%;
+	}
+
+	.coming-soon__content {
+		margin-top: 2rem;
+		flex-basis: 100%;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.coming-soon__content h1,
+	.coming-soon__content p {
+		text-align: center;
+	}
+}
